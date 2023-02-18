@@ -1,6 +1,6 @@
 from app import db #instancia do banco de dados
 
-class user(db.Model): #classe user extendendo db.Model, PADRAO para todas a classes de tabela
+class User(db.Model): #classe user extendendo db.Model, PADRAO para todas a classes de tabela
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key = True) 
     username = db.Column(db.String, unique=True)
