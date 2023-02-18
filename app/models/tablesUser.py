@@ -1,6 +1,6 @@
-from app import db
+from app import db #instancia do banco de dados
 
-class user(db.Model):
+class user(db.Model): #classe user extendendo db.Model, PADRAO para todas a classes de tabela
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key = True) 
     username = db.Column(db.String, unique=True)
@@ -8,6 +8,7 @@ class user(db.Model):
     name = db.Column(db.String)
     email = db.Column(db.String, unique=True)
     
+    #PADRAO
     def __init__(self,username,password, name, email):
        self.username = username
        self.password = password
@@ -15,4 +16,4 @@ class user(db.Model):
        self.email = email
        
     def __repr__(self):
-        return '<User %r>' % self.username
+        return '<user %r>' % self.username

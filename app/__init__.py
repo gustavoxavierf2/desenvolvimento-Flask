@@ -2,11 +2,11 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
 
-app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:FMvjqpWrp53vGZjnqqiy@containers-us-west-38.railway.app:6398/railway'
-db = SQLAlchemy(app)
+app = Flask(__name__) # atribuiçao do Flask
+app.config.from_object('config') # setando as configs
+db = SQLAlchemy(app) # atribuiçao do banco de dados a variavel db
 
-
-
-#from app.controllers import default
+#import de tabelas diretamente utilizaveis na aplicaçao, para que o arquivo run.py possa reconhecer
+from app.models import tables
+from app.controllers import default
 
