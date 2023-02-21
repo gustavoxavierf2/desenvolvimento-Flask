@@ -3,9 +3,9 @@ import mysql.connector
 def dataBase():
     conn = mysql.connector.connect( #parametros para conexao com o banco de dados
             user='root',
-            password='FMvjqpWrp53vGZjnqqiy',
+            password=,
             host='containers-us-west-38.railway.app',
-            port='6398',
+            port=,
             database='railway'
         )
     cursor = conn.cursor() #instancia do metodo cursor que serve para a execuçao de codigos SQL
@@ -22,7 +22,7 @@ def dataBase():
         )''') #criaçao de uma tabela, que deve ser identica as classes criadas na pasta models 
 
     cursor.execute(tabela) #execuçao do comando sql
-    _sql = 'INSERT INTO users (username, password, name, email) VALUES ("tt", "safas", "sdfdsaf", "fsdg@gmail")'
+    _sql = 'INSERT INTO users (username, password, name, email) VALUES ("guxfarias7", "0000", "gustavo", "guxfarias@gmail.com")'
     cursor.execute(_sql)
         
     conn.commit() #upload no banco de dados

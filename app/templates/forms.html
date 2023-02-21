@@ -1,0 +1,38 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel = 'stylesheet' href = "{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <title>forms</title>
+</head>
+<body>
+    <div class='container'>
+        <div class='row justify-content-center align-items-center vh-100'>
+            <div class='col-auto'>
+                <h2>Login flask</h2>
+                <!--action indica o caminho em que os dados serao enviados, se '' os dados serao enviados para o msm lugar, ou seja esta pagina-->
+                <form action='' method='POST'> <!--tag form para formularios em html,  method='POST' para envio de dados-->
+                    {{forms.csrf_token}}<!--atribuindo secret_key, para tornar o fomulario valido-->
+                    <div class="form-group">
+                        <label>username</label>
+                        {{forms.username(type="email", class='form-control', placeholder='seu usuario')}}<!--dentro dos parenteses podemos passamos atributos html-->
+                    </div>
+                    <div class='form-group'>
+                        <label>passworld</label>
+                        {{forms.password(class='form-control', placeholder='sua senha')}}<!--dentro dos parenteses podemos passamos atributos html-->
+                    </div>
+                    <div class='checkbox'>
+                        <label>
+                            checkbox {{forms.remember}} 
+                        </label>    
+                    </div>
+                    <button type='submit' class='btn btn-dark'>submit</button><!--dentro das tags podemos passamos atributos html-->    
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/jquery-3.6.3.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+</body>
+</html>
