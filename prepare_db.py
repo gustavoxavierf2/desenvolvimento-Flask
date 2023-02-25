@@ -3,21 +3,21 @@ import mysql.connector
 def dataBase():
     conn = mysql.connector.connect( #parametros para conexao com o banco de dados
             user='root',
-            password=,
-            host='containers-us-west-38.railway.app',
-            port=,
-            database='railway'
+            password='',
+            host='',
+            port='',
+            database='bd(mysql)'
         )
     cursor = conn.cursor() #instancia do metodo cursor que serve para a execuçao de codigos SQL
 
     tabela = ()
     tabela = (''' 
         CREATE TABLE users (
-        id INTEGER ,
-        username VARCHAR(20),
+        id INTEGER PRIMARY KEY AUTO_INCREMENT,
+        username VARCHAR(20) UNIQUE KEY,
         password VARCHAR(25),
         name VARCHAR(25),
-        email VARCHAR(30),
+        email VARCHAR(30) UNIQUE KEY,
         teste VARCHAR(30)
         )''') #criaçao de uma tabela, que deve ser identica as classes criadas na pasta models 
 
@@ -28,4 +28,5 @@ def dataBase():
     conn.commit() #upload no banco de dados
     cursor.close()
     conn.close()
-    
+
+dataBase()
